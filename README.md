@@ -19,4 +19,5 @@ Now that you've got that, run <code>instagram-pollanator.py</code> from the term
   </ul>
  <h3> I STILL WANT MORE </h3>
  So do I! You're welcome to buy me a coffee to fuel my development!
-<a href="https://www.buymeacoffee.com/elsell" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+<br/>
+<a href="https://www.buymeacoffee.com/elsell" target="_blank"><img style="margin: 0 auto" src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
