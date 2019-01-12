@@ -31,7 +31,7 @@ def clearScreen():
 ########################
 
 if len(sys.argv) < 3:
-    print("\nInstagram Pollanator")
+    print("\nINSTAGRAM POLLANATOR")
     print("______________________________")
     print("Usage:")
     print(sys.argv[0] + " <number_of_followers> <percentage>")
@@ -67,7 +67,7 @@ percent = int(sys.argv[2])
 #########################
 
 clearScreen()
-print("INSTAGRAM POLL VOTE CALCULATOR")
+print("INSTAGRAM POLLANTOR")
 print("______________________________")
 print("Followers:         " + str(followers))
 print("Calculated Voters: " + str(VOTERS))
