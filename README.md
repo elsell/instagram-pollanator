@@ -5,7 +5,7 @@
 No longer do you have to get anxious worrying that InstaDaddy003's Instagram poll may have more voters than yours! Use the <strong>Instagram Pollanator</strong> to discover the number of voters on an Instagram poll!
 
 <h3>Tell Me More!</h3>
-Simply give the Instagram Pollanator the <strong>number of followers</strong> that the poll author has and one of the percentages displayed on the poll. It will then use a proprietary algorithm (aka MATH) to determine the likely number of voters on the poll. 
+Simply give the Instagram Pollanator the <strong>number of followers</strong> that the poll author has and one of the percentages displayed on the poll. It will then use a proprietary algorithm (aka MATH and a hammer) to determine the likely number of voters on the poll. 
 <h5>NOTE: Sometimes InstaDaddy003 is tricky and his followers vote in such a way that there could be more than one possibility! Instagram Pollanator is nice enough to show you the most likely ones :)</h5>
 
 <h3>Let's Do This!</h3>
