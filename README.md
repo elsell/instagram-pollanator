@@ -11,6 +11,9 @@ Simply give the Instagram Pollanator the <strong>number of followers</strong> th
 <h3>Let's Do This!</h3>
 First, you must either clone or download this repo. (<a href="http://lmgtfy.com/?q=How+must+one+clone+a+git+repo%3F">Click here if you're a noob</a>)
 Now that you've got that, run <code>instagram-pollanator.py</code> from the terminal (command prompt):
+  <h5>Without Arguments</h5>
+  <pre><code>$ python instagram-pollanator.py</code></pre>  
+  <h5>With Arguments</h5>
   <pre><code>$ python instagram-pollanator.py &lt;number_of_followers&gt; &lt;percentage&gt;</code></pre>
   <h4>Parameters:</h4>
   <ul>
