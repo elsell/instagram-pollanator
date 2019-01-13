@@ -1,17 +1,17 @@
 #! /bin/python
 
-##################################################
-
-# $$$$$$$$\$$\      $$$$$$\ $$$$$$$$\$$\      $$\       
-# $$  _____$$ |    $$  __$$\$$  _____$$ |     $$ |      
-# $$ |     $$ |    $$ /  \__$$ |     $$ |     $$ |      
-# $$$$$\   $$ |    \$$$$$$\ $$$$$\   $$ |     $$ |      
-# $$  __|  $$ |     \____$$\$$  __|  $$ |     $$ |      
-# $$ |     $$ |    $$\   $$ $$ |     $$ |     $$ |      
-# $$$$$$$$\$$$$$$$$\$$$$$$  $$$$$$$$\$$$$$$$$\$$$$$$$$\ 
-# \________\________\______/\________\________\________|
-                                                      
-###################################################
+##########################################################
+#                                                        #
+# $$$$$$$$\$$\      $$$$$$\ $$$$$$$$\$$\      $$\        #
+# $$  _____$$ |    $$  __$$\$$  _____$$ |     $$ |       #
+# $$ |     $$ |    $$ /  \__$$ |     $$ |     $$ |       #
+# $$$$$\   $$ |    \$$$$$$\ $$$$$\   $$ |     $$ |       #
+# $$  __|  $$ |     \____$$\$$  __|  $$ |     $$ |       #
+# $$ |     $$ |    $$\   $$ $$ |     $$ |     $$ |       #
+# $$$$$$$$\$$$$$$$$\$$$$$$  $$$$$$$$\$$$$$$$$\$$$$$$$$\  #
+# \________\________\______/\________\________\________| #
+#                                                        #
+##########################################################
 
 # Instagram Pollinator
 ######################
@@ -27,13 +27,42 @@ import os
 def clearScreen():
     os.system('cls||clear')
 
+# Name Printer!
+def printName():
+    print("""  ___ _   _ ____ _____  _    ____ ____     _    __  __          
+ |_ _| \ | / ___|_   _|/ \  / ___|  _ \   / \  |  \/  |        
+  | ||  \| \___ \ | | / _ \| |  _| |_) | / _ \ | |\/| |       
+  | || |\  |___) || |/ ___ | |_| |  _ < / ___ \| |  | |        
+ |___|_| \_|____/ |_/_/   \_\____|_| \_/_/   \_|_|  |_|        
+  ____   ___  _     _        _    _   _    _  _____ ___  ____  
+ |  _ \ / _ \| |   | |      / \  | \ | |  / \|_   _/ _ \|  _ \ 
+ | |_) | | | | |   | |     / _ \ |  \| | / _ \ | || | | | |_) |
+ |  __/| |_| | |___| |___ / ___ \| |\  |/ ___ \| || |_| |  _ < 
+ |_|    \___/|_____|_____/_/   \_|_| \_/_/   \_|_| \___/|_| \_ 
+                 - github.com/elsell -\n""")
+
+# Input Getter
+def getInput():
+    followers = None
+    percent = None
+    
+    while not followers or not percent or not followers.isdigit() or not percent.isdigit():
+        clearScreen()
+        printName()
+
+        followers = raw_input("Number of Followers: ")
+        percent = raw_input("Percentage on Poll (ex: 25): ")
+   
+    returnInput = { "followers":followers, "percent": percent }
+
+    return returnInput
 
 ########################
 # Ensure correct usage #
 ########################
 
-if len(sys.argv) < 3:
-    print("\nINSTAGRAM POLLANATOR")
+if len(sys.argv) != 3 and len(sys.argv) > 1:
+    printName()
     print("______________________________")
     print("Usage:")
     print(sys.argv[0] + " <number_of_followers> <percentage>")
@@ -43,15 +72,21 @@ if len(sys.argv) < 3:
             +" on an Instagram Poll\n\n")
     sys.exit()
 
-
 #########################
 #     Get User Data     #  
 #########################
 
-# Calculate the approximate number of votes
-# given the number of followers 
+followers = ""
+percent = ""
 
-followers = int(sys.argv[1])
+if len(sys.argv) != 3:
+    userInput = getInput() 
+    followers = int(userInput['followers'])
+    percent = int(userInput['percent'])
+else:
+    followers = int(sys.argv[1])
+    percent = int(sys.argv[2])
+
 VOTERS = followers
 
 # Assume the more popular, the less loyal :)
@@ -59,24 +94,19 @@ VOTERS = followers
 if followers > 75:
     VOTERS = int(round(float(followers) * .2))
 
-# Get one of the percentages shown by Instagram
-
-percent = int(sys.argv[2])
-
-
 #########################
 #   Initiation Output   #
 #########################
 
 clearScreen()
-print("INSTAGRAM POLLANTOR")
-print("______________________________")
-print("Followers:         " + str(followers))
-print("Calculated Voters: " + str(VOTERS))
-print("Given Percentage:  " + str(percent))
-print("______________________________")
+printName()
+print("_________________________________________________________________________")
+print("Followers: " + str(followers) \
+      + " | Effective Voters: " + str(VOTERS) \
+      + " | Given Percentage: " + str(percent))
+print("_________________________________________________________________________")
 
-print("\nCalculating Possibilities...")
+print("Calculating Possibilities...")
 
 
 ########################
@@ -100,7 +130,7 @@ def findPossibilities(precision, minimum = 20000000, possible = []):
             result1 = int(round((float(voters) / float(total)) * 100,precision))
             result2 = int(round((float(total - voters) / float(total)) * 100,precision))
 
-            if (result1 + result2) != 100:
+            if (result1 + result2) != 100 or result1 < 0 or result2 < 0:
                 continue
 
             if result1 == percent:
@@ -123,12 +153,16 @@ result = json.loads(json.dumps(findPossibilities(5)))
 
 print("______________________________")
 print("\nRESULTS:")
-print("Possible Number of Voters:\n")
 
-for entry in result:
-    print("* "\
-    + str(entry['total'])\
-    + " Total Voters (" + str(entry['low'])\
-    + "," + str(entry['high'])\
-    + ")")
+if len(result) > 0:
+    print("Possible Number of Voters:\n")
+    for entry in result:
+        print("* "\
+        + str(entry['total'])\
+        + " Total Voters (" + str(entry['low'])\
+        + "," + str(entry['high'])\
+        + ")")
+else:
+    print("I can't seem to find any results with those numbers.")
+
 print("______________________________\n")
