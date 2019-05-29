@@ -18,7 +18,7 @@ Now that you've got that, run <code>instagram-pollanator.py</code> from the term
   <h4>Parameters:</h4>
   <ul>
     <li><code>&lt;number_of_followers&gt;</code>: Quantity of people following the account that posted the poll. This number is used to determine the likely number of people that voted on the poll.</li>
-    <li><code>&lt;percentage&gt;</code>: One singe percentage displayed on the poll. Instagram shows TWO percentages, but you only need to enter one!</li>
+    <li><code>&lt;percentage&gt;</code>: One single percentage displayed on the poll. Instagram shows TWO percentages, but you only need to enter one!</li>
   </ul>
  <h3> I STILL WANT MORE </h3>
  So do I! You're welcome to buy me a coffee to fuel my development!
